@@ -1,0 +1,37 @@
+/* ==========================================================================
+   React Bits — Aurora Component Styles
+   https://reactbits.dev
+   ========================================================================== */
+
+.aurora-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.aurora-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Full-page fixed background layer */
+.aurora-page-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+body.theme-aurora .aurora-page-bg {
+  opacity: 1;
+  visibility: visible;
+}

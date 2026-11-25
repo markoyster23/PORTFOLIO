@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Oyster J — ECE & Hardware Engineer</title>
+  <meta name="description" content="Portfolio of Mark Oyster J, Electronics and Communication Engineering student specializing in FPGA systems, embedded firmware, circuits, and PCB stackups.">
+  
+  <!-- Google Fonts: Poppins (Regular, Medium, SemiBold, ExtraBold) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="GradientText.css">
+  <link rel="stylesheet" href="Aurora.css">
+</head>
+<body class="theme-aurora">
+  <!-- Full-page Aurora WebGL2 Background (React Bits) -->
+  <div class="aurora-page-bg" aria-hidden="true">
+    <div
+      class="aurora-container"
+      id="auroraBg"
+      data-color-stops='["#7c3aed","#ef4444","#8a5cff"]'
+      data-amplitude="1.3"
+      data-blend="0.53"
+      data-height="0.45"
+      data-speed="1.95"
+      data-glow="0.85"
+      data-layers="2"
+    >
+      <canvas class="aurora-canvas" aria-hidden="true"></canvas>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#top" class="brand-logo">Mark Oyster J</a>
+      
+      <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#top" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-socials">
+        <a href="https://www.instagram.com/markoyster23/" target="_blank" rel="noopener noreferrer" title="Instagram: markoyster23" class="social-icon" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/markoyster23" target="_blank" rel="noopener noreferrer" title="GitHub: markoyster23" class="social-icon" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mark-oyster-j-5266622b6/" target="_blank" rel="noopener noreferrer" title="LinkedIn: mark-oyster-j" class="social-icon" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <p class="hero-intro">Hello, I’m Mark,</p>
+        <h1 class="hero-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">ECE & Hardware<br>Engineer</span></span></span></h1>
+        <p class="hero-location">based in Chennai, India.</p>
+        
+        <div class="hero-actions">
+          <!-- Figma Design Component: Outlined button with offset yellow backing shape -->
+          <div class="offset-btn-wrapper">
+            <div class="btn-backing"></div>
+            <a href="#about" class="offset-btn" id="resumeBtn">
+              <span>Resume</span>
+            </a>
+          </div>
+
+          <a href="#work" class="secondary-hero-btn">
+            See selected work &darr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Composition: Irregular/Organic Masked Portrait, Offset Outline, Diagonals & Plus Decorations -->
+      <div class="hero-portrait-container">
+        <!-- Plus-shaped decorations near upper-right -->
+        <div class="plus-decorations" aria-hidden="true">
+          <span class="plus-icon">+</span>
+          <span class="plus-icon small">+</span>
+          <span class="plus-icon tiny">+</span>
+        </div>
+
+        <!-- Offset Olive Outline -->
+        <div class="portrait-outline-shape"></div>
+
+        <!-- Masked Visual Canvas / Interactive Profile Photo -->
+        <div class="portrait-mask" id="profileContainer" tabindex="0" role="button" aria-label="Interactive profile photo of Mark Oyster J. Hover or tap to toggle between Professional and Real Me views.">
+          <div class="profile-image-wrapper">
+            <!-- Image 1: Professional ME (Default) -->
+            <img 
+              src="assets/profile-pro.jpg" 
+              alt="Mark Oyster J — Professional Portrait" 
+              class="profile-img profile-img-pro"
+              loading="eager"
+            >
+            <!-- Image 2: REAL ME (Hover / Active) -->
+            <img 
+              src="assets/profile-real.jpg" 
+              alt="Mark Oyster J — Creative and Authentic Portrait" 
+              class="profile-img profile-img-real"
+              loading="eager"
+            >
+            <!-- Name Indicator Pill -->
+            <div class="profile-indicator" aria-hidden="true">
+              <span class="indicator-pill">
+                <span class="indicator-dot"></span>
+                <span class="indicator-name">MARK OYSTER</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagonal decorative strokes on lower-left edge -->
+        <div class="diagonal-decorations" aria-hidden="true">
+          <span class="stroke stroke-1"></span>
+          <span class="stroke stroke-2"></span>
+          <span class="stroke stroke-3"></span>
+          <span class="stroke stroke-4"></span>
+          <span class="stroke stroke-5"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="section-heading-wrapper">
+        <h2 class="oversized-heading"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">about.</span></span></span></h2>
+      </div>
+
+      <div class="about-content">
+        <div class="about-intro-box">
+          <p class="about-lead">
+            <strong>Circuits first, software close behind.</strong> Strong in circuit analysis, project management, and PCB stackup design, with hands-on use of CAD tools across embedded systems and VLSI projects.
+          </p>
+          <p class="about-text">
+            Practical exposure to AWS and Google Cloud, including cloud infrastructure, serverless computing, and data engineering concepts. Always learning, and keen to contribute across embedded systems, cloud technologies, and electronics engineering.
+          </p>
+        </div>
+
+        <!-- Experience & Education Timeline (Matching Figma Specification) -->
+        <div class="timeline-container">
+          <div class="timeline-header">
+            <h3 class="timeline-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Experience & Education</span></span></span></h3>
+          </div>
+
+          <div class="timeline-track">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-entry">
+              <div class="timeline-bullet"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">Jun–Aug 2024</span>
+                <h4 class="timeline-role"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Inplant Trainee &mdash; Code Bind Technologies</span></span></span></h4>
+                <p class="timeline-desc">
+                  Integrated embedded hardware and wrote C firmware for microcontroller-based IoT prototypes, ensuring reliable sensor data acquisition and actuator control. Documented test procedures and reports, and collaborated with engineers on rapid hardware prototyping and handover.
+                </p>
+                <div class="entry-tags">
+                  <span class="tag">Embedded C</span>
+                  <span class="tag">Microcontrollers</span>
+                  <span class="tag">IoT Prototypes</span>
+                  <span class="tag">Sensor Interfacing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-entry">
+              <div class="timeline-bullet"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">2023–2027</span>
+                <h4 class="timeline-role"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">B.E. Electronics and Communication Engineering</span></span></span></h4>
+                <p class="timeline-institution">Saveetha Engineering College, Chennai &middot; <strong>CGPA 7.91</strong></p>
+                <p class="timeline-desc">
+                  Focusing on VLSI architecture, FPGA programming with Vitis HLS & Vivado, digital signal processing, circuit simulation, and high-speed communication systems.
+                </p>
+                <div class="entry-tags">
+                  <span class="tag">FPGA Systems</span>
+                  <span class="tag">VLSI Design</span>
+                  <span class="tag">Digital Systems</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-entry">
+              <div class="timeline-bullet"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">2022–2023</span>
+                <h4 class="timeline-role"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Higher Secondary Certificate (XII)</span></span></span></h4>
+                <p class="timeline-institution">Don Bosco Mat. Hr. Sec. School, Chennai &middot; <strong>87.7%</strong></p>
+                <p class="timeline-desc">
+                  Rigorous foundational coursework in Mathematics, Physics, and Chemistry with distinction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recognition & Certifications Grid -->
+        <div class="about-extras-grid">
+          <div class="extra-card">
+            <div class="extra-card-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              <h4><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Recognition & Honors</span></span></span></h4>
+            </div>
+            <ul class="extra-list">
+              <li>
+                <strong>3rd Place &mdash; "Debug the Circuit"</strong> at National Technical Symposium <em>E-Axion</em>, St. Joseph’s College of Engineering.
+              </li>
+              <li>
+                <strong>24-Hour Hackathon Winner:</strong> Successfully developed and closed timing on the FPGA Real-Time Collision Avoidance NoC on PYNQ-Z2 with <strong>100 MHz timing closure</strong> and <strong>zero failing endpoints</strong>.
+              </li>
+              <li>
+                <strong>Leadership & Outreach:</strong> Actively volunteered to organize and coordinate college tech symposiums, workshops, and student lab initiatives.
+              </li>
+            </ul>
+          </div>
+
+          <div class="extra-card">
+            <div class="extra-card-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h4><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Industry Certifications</span></span></span></h4>
+            </div>
+            <ul class="extra-list cert-list">
+              <li>
+                <div class="cert-title">Data Analytics Job Simulation</div>
+                <div class="cert-issuer">Deloitte Australia</div>
+              </li>
+              <li>
+                <div class="cert-title">Excel Skills Job Simulation</div>
+                <div class="cert-issuer">JPMorgan Chase & Co.</div>
+              </li>
+              <li>
+                <div class="cert-title">Getting Started with Cisco Packet Tracer</div>
+                <div class="cert-issuer">Cisco Networking Academy</div>
+              </li>
+              <li>
+                <div class="cert-title">Introduction to Generative AI</div>
+                <div class="cert-issuer">AWS Educate &middot; Amazon Web Services</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="section work-section" id="work">
+      <div class="section-heading-wrapper">
+        <h2 class="oversized-heading"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">work.</span></span></span></h2>
+      </div>
+
+      <div class="work-content">
+        <div class="work-intro-box">
+          <p class="work-lead">
+            Selected engineering projects demonstrating end-to-end execution &mdash; from RTL synthesizable logic and firmware drivers to analog RF transmission and edge AI pipelines.
+          </p>
+        </div>
+
+        <!-- 2-Column Side-by-Side Project Grid matching Figma specifications -->
+        <div class="projects-grid">
+          
+          <!-- Project 1: Real-Time Collision Avoidance NoC -->
+          <article class="project-card" data-project="noc">
+            <!-- Project Image Tile (560 x 400 ratio) with Interactive Olive Hover Variant -->
+            <div class="project-image-tile">
+              <div class="tile-base-graphic graphic-noc">
+                <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet" class="project-svg">
+                  <rect width="560" height="400" fill="#03045E"/>
+                  <!-- Mesh topology grid -->
+                  <g stroke="#F5EE84" stroke-width="1.5" opacity="0.3">
+                    <line x1="140" y1="0" x2="140" y2="400"/>
+                    <line x1="280" y1="0" x2="280" y2="400"/>
+                    <line x1="420" y1="0" x2="420" y2="400"/>
+                    <line x1="0" y1="133" x2="560" y2="133"/>
+                    <line x1="0" y1="266" x2="560" y2="266"/>
+                  </g>
+                  
+                  <!-- 2x2 NoC Router Nodes -->
+                  <g>
+                    <!-- Node (0,0) -->
+                    <rect x="180" y="90" width="80" height="80" rx="12" fill="#474306" stroke="#F5EE84" stroke-width="2"/>
+                    <text x="220" y="135" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="700" font-size="14">NODE 0,0</text>
+                    <text x="220" y="153" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="10">Sensor Rx</text>
+
+                    <!-- Node (0,1) -->
+                    <rect x="300" y="90" width="80" height="80" rx="12" fill="#474306" stroke="#F5EE84" stroke-width="2"/>
+                    <text x="340" y="135" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="700" font-size="14">NODE 0,1</text>
+                    <text x="340" y="153" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="10">Filtering</text>
+
+                    <!-- Node (1,0) -->
+                    <rect x="180" y="230" width="80" height="80" rx="12" fill="#474306" stroke="#F5EE84" stroke-width="2"/>
+                    <text x="220" y="275" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="700" font-size="14">NODE 1,0</text>
+                    <text x="220" y="293" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="10">Classifier</text>
+
+                    <!-- Node (1,1) -->
+                    <rect x="300" y="230" width="80" height="80" rx="12" fill="#474306" stroke="#F5EE84" stroke-width="2"/>
+                    <text x="340" y="275" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="700" font-size="14">NODE 1,1</text>
+                    <text x="340" y="293" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="10">QoS Actuate</text>
+
+                    <!-- Interconnects -->
+                    <line x1="260" y1="130" x2="300" y2="130" stroke="#F5EE84" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="260" y1="270" x2="300" y2="270" stroke="#F5EE84" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="220" y1="170" x2="220" y2="230" stroke="#F5EE84" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="340" y1="170" x2="340" y2="230" stroke="#F5EE84" stroke-width="4" stroke-linecap="round"/>
+                  </g>
+
+                  <!-- Live Hardware Badge -->
+                  <rect x="30" y="30" width="170" height="34" rx="6" fill="#F5EE84"/>
+                  <text x="115" y="52" text-anchor="middle" fill="#03045E" font-family="'Poppins', sans-serif" font-weight="700" font-size="12">100 MHz TIMING CLOSURE</text>
+
+                  <rect x="380" y="336" width="150" height="34" rx="6" fill="#03045E" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="455" y="358" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">PYNQ-Z2 FPGA</text>
+                </svg>
+              </div>
+
+              <!-- Figma Variant 2: Opaque Olive Layer with Centered Pale-Yellow Text -->
+              <div class="tile-hover-overlay">
+                <div class="overlay-inner">
+                  <h3 class="overlay-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Real-Time Collision Avoidance NoC</span></span></span></h3>
+                  <p class="overlay-meta">4-Core 2&times;2 Mesh &middot; Vitis HLS & Vivado</p>
+                  <span class="overlay-action">Click to inspect architecture &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Metadata and Content -->
+            <div class="project-details">
+              <span class="project-date">FPGA & System-on-Chip &middot; 2024</span>
+              <h3 class="project-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Real-Time Collision Avoidance Network-on-Chip</span></span></span></h3>
+              <p class="project-description">
+                A 4-core adaptive QoS-based 2&times;2 Network-on-Chip on FPGA for real-time obstacle detection and emergency response.
+              </p>
+              <ul class="project-highlights">
+                <li>Hardware sensor-to-decision pipeline executing distance validation, moving-average noise filtering, and danger classification.</li>
+                <li>Priority-based packet routing delivers sub-millisecond SAFE, CAUTION, and EMERGENCY STOP actuation commands on PYNQ-Z2.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech-tag">Vitis HLS</span>
+                <span class="tech-tag">Vivado</span>
+                <span class="tech-tag">PYNQ-Z2</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">HC-SR04</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: IoT Smart Production Monitoring -->
+          <article class="project-card" data-project="iot">
+            <div class="project-image-tile">
+              <div class="tile-base-graphic graphic-iot">
+                <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet" class="project-svg">
+                  <rect width="560" height="400" fill="#0A1128"/>
+                  <!-- Waveform grid -->
+                  <g stroke="#474306" stroke-width="0.8" opacity="0.4">
+                    <line x1="40" y1="50" x2="520" y2="50"/>
+                    <line x1="40" y1="120" x2="520" y2="120"/>
+                    <line x1="40" y1="190" x2="520" y2="190"/>
+                    <line x1="40" y1="260" x2="520" y2="260"/>
+                    <line x1="40" y1="330" x2="520" y2="330"/>
+                  </g>
+                  
+                  <!-- Sensor Telemetry Waves -->
+                  <!-- Vibration waveform -->
+                  <path d="M 50 190 Q 90 120, 130 190 T 210 190 T 290 80 T 370 290 T 450 190 T 510 190" fill="none" stroke="#F5EE84" stroke-width="3" stroke-linecap="round"/>
+                  <!-- Temperature trend line -->
+                  <path d="M 50 240 Q 150 250, 250 220 T 400 170 T 510 140" fill="none" stroke="#FF7B00" stroke-width="2.5" stroke-dasharray="6 4"/>
+                  
+                  <!-- Dashboard card representation -->
+                  <rect x="60" y="60" width="160" height="80" rx="8" fill="#1C2541" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="80" y="90" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">VIBRATION RMS</text>
+                  <text x="80" y="122" fill="#F5EE84" font-family="'Poppins', sans-serif" font-weight="700" font-size="22">0.42 mm/s</text>
+
+                  <rect x="340" y="60" width="160" height="80" rx="8" fill="#1C2541" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="360" y="90" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">STATUS</text>
+                  <text x="360" y="122" fill="#70E000" font-family="'Poppins', sans-serif" font-weight="700" font-size="20">HEALTHY</text>
+
+                  <!-- Node ESP32 badge -->
+                  <rect x="60" y="325" width="180" height="34" rx="6" fill="#F5EE84"/>
+                  <text x="150" y="347" text-anchor="middle" fill="#03045E" font-family="'Poppins', sans-serif" font-weight="700" font-size="12">ESP32 &middot; MQTT BROKER</text>
+                </svg>
+              </div>
+
+              <div class="tile-hover-overlay">
+                <div class="overlay-inner">
+                  <h3 class="overlay-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">IoT Smart Production & Maintenance</span></span></span></h3>
+                  <p class="overlay-meta">Vibration, Temp & Current &middot; Edge AI Anomaly</p>
+                  <span class="overlay-action">Click to inspect architecture &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <span class="project-date">IoT & Predictive Analytics &middot; 2024</span>
+              <h3 class="project-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Smart Production Monitoring & Predictive Maintenance</span></span></span></h3>
+              <p class="project-description">
+                Gathers industrial vibration, thermal, and electrical current telemetry to monitor machine health and predict mechanical breakdown before failure.
+              </p>
+              <ul class="project-highlights">
+                <li>Proposed 1D CNN anomaly detection engine integrated with Tableau and MQTT streaming dashboards.</li>
+                <li>Identifies bearing wear, thermal runaway, and anomalous load spikes to eliminate unplanned production downtime.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">MQTT</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Jupyter</span>
+                <span class="tech-tag">Tableau</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Low-Power VLSI ECG Res-ViT -->
+          <article class="project-card" data-project="ecg">
+            <div class="project-image-tile">
+              <div class="tile-base-graphic graphic-ecg">
+                <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet" class="project-svg">
+                  <rect width="560" height="400" fill="#020826"/>
+                  
+                  <!-- ECG Waveform background -->
+                  <path d="M 30 200 L 90 200 L 110 180 L 130 220 L 145 200 L 160 200 L 175 110 L 195 310 L 210 160 L 225 200 L 260 200 L 280 185 L 300 200 L 360 200 L 380 110 L 400 310 L 415 160 L 430 200 L 530 200" fill="none" stroke="#F5EE84" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  
+                  <!-- Attention Heatmap / Transformer Matrix representation -->
+                  <g opacity="0.8">
+                    <rect x="70" y="50" width="80" height="24" rx="4" fill="#1B2A4A" stroke="#474306" stroke-width="1"/>
+                    <text x="110" y="66" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-size="10">1D Dilated Conv</text>
+
+                    <rect x="180" y="50" width="80" height="24" rx="4" fill="#1B2A4A" stroke="#474306" stroke-width="1"/>
+                    <text x="220" y="66" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-size="10">Residual Skip</text>
+
+                    <rect x="290" y="50" width="90" height="24" rx="4" fill="#1B2A4A" stroke="#474306" stroke-width="1"/>
+                    <text x="335" y="66" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-size="10">ViT Self-Attention</text>
+
+                    <rect x="410" y="50" width="80" height="24" rx="4" fill="#F5EE84"/>
+                    <text x="450" y="66" text-anchor="middle" fill="#03045E" font-family="'Poppins', sans-serif" font-weight="700" font-size="10">3-Class Softmax</text>
+                  </g>
+
+                  <!-- Accuracy Indicator -->
+                  <rect x="50" y="325" width="220" height="34" rx="6" fill="#F5EE84"/>
+                  <text x="160" y="347" text-anchor="middle" fill="#03045E" font-family="'Poppins', sans-serif" font-weight="700" font-size="12">128 Hz SAMPLING &middot; 5-FOLD CV</text>
+                </svg>
+              </div>
+
+              <div class="tile-hover-overlay">
+                <div class="overlay-inner">
+                  <h3 class="overlay-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Low-Power ECG Res-ViT Detection</span></span></span></h3>
+                  <p class="overlay-meta">Dilated Residual CNN + Vision Transformer</p>
+                  <span class="overlay-action">Click to inspect architecture &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <span class="project-date">Edge AI & Biomedical VLSI &middot; 2024</span>
+              <h3 class="project-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Low-Power VLSI ECG Res-ViT Arrhythmia Detection</span></span></span></h3>
+              <p class="project-description">
+                End-to-end signal processing and deep learning pipeline combining 1D dilated residual convolutional layers with Vision Transformer self-attention on 128 Hz ECG.
+              </p>
+              <ul class="project-highlights">
+                <li>High-precision multi-class discrimination across Arrhythmia, Congestive Heart Failure, and Normal Sinus Rhythm.</li>
+                <li>Stratified 5-fold cross-validation and Bayesian hyperparameter tuning via Keras Tuner, optimized for low-power edge ASIC/FPGA target deployment.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Keras</span>
+                <span class="tech-tag">Scikit-Learn</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Bayesian Optimization</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: 3-Stage FM Transmitter -->
+          <article class="project-card" data-project="fm">
+            <div class="project-image-tile">
+              <div class="tile-base-graphic graphic-fm">
+                <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet" class="project-svg">
+                  <rect width="560" height="400" fill="#0C1B33"/>
+                  
+                  <!-- RF Schematic Diagram -->
+                  <!-- Stage 1: Preamplifier -->
+                  <rect x="40" y="140" width="100" height="90" rx="8" fill="#142850" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="90" y="180" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="600" font-size="11">Audio Pre-Amp</text>
+                  <text x="90" y="200" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="9">Class A Stage</text>
+
+                  <!-- Interconnect line -->
+                  <line x1="140" y1="185" x2="190" y2="185" stroke="#F5EE84" stroke-width="2"/>
+
+                  <!-- Stage 2: RF Oscillator -->
+                  <rect x="190" y="140" width="110" height="90" rx="8" fill="#142850" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="245" y="180" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="600" font-size="11">RF Oscillator</text>
+                  <text x="245" y="200" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="9">LC Tank Tuning</text>
+
+                  <!-- Interconnect line -->
+                  <line x1="300" y1="185" x2="350" y2="185" stroke="#F5EE84" stroke-width="2"/>
+
+                  <!-- Stage 3: RF Power Amplifier -->
+                  <rect x="350" y="140" width="110" height="90" rx="8" fill="#142850" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="405" y="180" text-anchor="middle" fill="#FBF8CC" font-family="'Poppins', sans-serif" font-weight="600" font-size="11">RF Power Amp</text>
+                  <text x="405" y="200" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-size="9">Class C Driver</text>
+
+                  <!-- Antenna Coupling -->
+                  <line x1="460" y1="185" x2="495" y2="185" stroke="#F5EE84" stroke-width="2"/>
+                  <!-- Antenna icon -->
+                  <path d="M 495 185 L 515 150 M 515 150 L 515 220 M 515 150 L 535 185" stroke="#F5EE84" stroke-width="2.5" stroke-linecap="round"/>
+
+                  <!-- Badges -->
+                  <rect x="40" y="60" width="170" height="34" rx="6" fill="#F5EE84"/>
+                  <text x="125" y="82" text-anchor="middle" fill="#03045E" font-family="'Poppins', sans-serif" font-weight="700" font-size="12">RANGE: UP TO 1 KM</text>
+
+                  <rect x="330" y="325" width="180" height="34" rx="6" fill="#142850" stroke="#F5EE84" stroke-width="1.5"/>
+                  <text x="420" y="347" text-anchor="middle" fill="#F5EE84" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">LTSPICE SIMULATED</text>
+                </svg>
+              </div>
+
+              <div class="tile-hover-overlay">
+                <div class="overlay-inner">
+                  <h3 class="overlay-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">3-Stage RF FM Transmitter</span></span></span></h3>
+                  <p class="overlay-meta">Pre-amp, Oscillator, Power Amp &middot; 1 km Range</p>
+                  <span class="overlay-action">Click to inspect architecture &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <span class="project-date">Analog RF & Circuits &middot; 2023–2024</span>
+              <h3 class="project-title"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">3-Stage Long-Range FM Transmitter</span></span></span></h3>
+              <p class="project-description">
+                Engineered a continuous wireless audio transmission system comprising an audio preamplifier, stable RF carrier oscillator, and high-efficiency RF power amplifier stage.
+              </p>
+              <ul class="project-highlights">
+                <li>Characterized tank circuit modulation, harmonic suppression, impedance matching, and capacitive antenna coupling.</li>
+                <li>Simulated and tuned in LTspice and MATLAB, achieving low-distortion audio broadcast across a wireless radius up to 1 kilometer.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech-tag">LTspice</span>
+                <span class="tech-tag">MATLAB</span>
+                <span class="tech-tag">RF Analog</span>
+                <span class="tech-tag">Impedance Matching</span>
+                <span class="tech-tag">PCB Layout</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills / Toolbox Section -->
+    <section class="section skills-section" id="skills">
+      <div class="section-heading-wrapper">
+        <h2 class="oversized-heading"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">toolbox.</span></span></span></h2>
+      </div>
+
+      <div class="skills-content">
+        <p class="skills-lead">
+          Comprehensive stack spanning hardware simulation, EDA CAD suites, HDL synthesis, edge AI, cloud systems, and industrial bus communications.
+        </p>
+
+        <div class="skills-grid">
+          <!-- Programming -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <span class="cat-num">01</span>
+              <h3><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Programming & HDL</span></span></span></h3>
+            </div>
+            <div class="cat-badges">
+              <span class="skill-badge">Python 3</span>
+              <span class="skill-badge">C</span>
+              <span class="skill-badge">C++</span>
+              <span class="skill-badge">Vitis HLS (C++)</span>
+              <span class="skill-badge">HTML5</span>
+              <span class="skill-badge">CSS3</span>
+            </div>
+          </div>
+
+          <!-- Tools & EDA Software -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <span class="cat-num">02</span>
+              <h3><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">EDA CAD & Simulation</span></span></span></h3>
+            </div>
+            <div class="cat-badges">
+              <span class="skill-badge">Vivado</span>
+              <span class="skill-badge">Cadence Virtuoso</span>
+              <span class="skill-badge">Altium Designer</span>
+              <span class="skill-badge">KiCAD</span>
+              <span class="skill-badge">EAGLE 7.6.2</span>
+              <span class="skill-badge">LTspice</span>
+              <span class="skill-badge">COMSOL Multiphysics</span>
+              <span class="skill-badge">OptiPerformer</span>
+              <span class="skill-badge">Arduino IDE</span>
+            </div>
+          </div>
+
+          <!-- Protocols & Hardware Interconnect -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <span class="cat-num">03</span>
+              <h3><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Buses & Protocols</span></span></span></h3>
+            </div>
+            <div class="cat-badges">
+              <span class="skill-badge">USART / UART</span>
+              <span class="skill-badge">SPI</span>
+              <span class="skill-badge">I2C</span>
+              <span class="skill-badge">CAN Bus</span>
+              <span class="skill-badge">NFC</span>
+              <span class="skill-badge">LoRa</span>
+              <span class="skill-badge">MQTT</span>
+              <span class="skill-badge">BACnet</span>
+            </div>
+          </div>
+
+          <!-- Cloud & Machine Learning -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <span class="cat-num">04</span>
+              <h3><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Cloud, AI & Analytics</span></span></span></h3>
+            </div>
+            <div class="cat-badges">
+              <span class="skill-badge">AWS EC2 / S3</span>
+              <span class="skill-badge">Google Cloud (GCP)</span>
+              <span class="skill-badge">Docker</span>
+              <span class="skill-badge">Git & GitHub</span>
+              <span class="skill-badge">TensorFlow</span>
+              <span class="skill-badge">Scikit-Learn</span>
+              <span class="skill-badge">Tableau</span>
+              <span class="skill-badge">Cisco Packet Tracer</span>
+            </div>
+          </div>
+
+          <!-- Core Concepts & Methodology -->
+          <div class="skill-category-card full-span">
+            <div class="cat-header">
+              <span class="cat-num">05</span>
+              <h3><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">Engineering Domains & Core Concepts</span></span></span></h3>
+            </div>
+            <div class="cat-badges">
+              <span class="skill-badge">FPGA Network-on-Chip (NoC)</span>
+              <span class="skill-badge">PCB Stackup & Impedance Matching</span>
+              <span class="skill-badge">VLSI Cell Design</span>
+              <span class="skill-badge">Industrial IoT Telemetry</span>
+              <span class="skill-badge">TCP/IP & OSPF Routing</span>
+              <span class="skill-badge">Analog RF Systems</span>
+              <span class="skill-badge">Firmware Driver Development</span>
+              <span class="skill-badge">Timing Closure Optimization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="section-heading-wrapper">
+        <h2 class="oversized-heading"><span class="gradient-text" style="--gt-glow: 0.4;"><span class="gradient-text__inner"><span class="gradient-text__content">contact.</span></span></span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left Column: Visual Card with Offset Outline & Freaky Me Photograph -->
+        <div class="contact-visual-col">
+          <div class="contact-card-frame">
+            <div class="contact-card-backing"></div>
+            <div class="contact-card-front">
+              <div class="contact-photo-wrapper">
+                <img 
+                  src="assets/Freaky me.jpeg" 
+                  alt="Mark Oyster J — Creative Artwork Portrait" 
+                  class="contact-photo"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Contact Details & Action Form -->
+        <div class="contact-details-col">
+          <p class="contact-lead">
+            Available for hardware engineering internships, embedded firmware projects, FPGA logic development, and collaborative research.
+          </p>
+
+          <div class="contact-rows">
+            <div class="contact-row">
+              <span class="row-label">Email:</span>
+              <a href="mailto:10328.markoyster@gmail.com" class="row-value mail-link">10328.markoyster@gmail.com</a>
+              <button class="copy-btn" id="copyEmailBtn" title="Copy email address">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span class="copy-text">Copy</span>
+              </button>
+            </div>
+
+            <div class="contact-row">
+              <span class="row-label">Phone:</span>
+              <a href="tel:+919629053736" class="row-value">+91 96290 53736</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="row-label">GitHub:</span>
+              <a href="https://github.com/markoyster23" target="_blank" rel="noopener noreferrer" class="row-value mail-link">github.com/markoyster23</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="row-label">LinkedIn:</span>
+              <a href="https://www.linkedin.com/in/mark-oyster-j-5266622b6/" target="_blank" rel="noopener noreferrer" class="row-value mail-link">linkedin.com/in/mark-oyster-j-5266622b6</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="row-label">Instagram:</span>
+              <a href="https://www.instagram.com/markoyster23/" target="_blank" rel="noopener noreferrer" class="row-value mail-link">instagram.com/markoyster23</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="row-label">Location:</span>
+              <span class="row-value">Chennai, Tamil Nadu, India</span>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Message Sender -->
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" required placeholder="e.g. Alex Morgan">
+            </div>
+            <div class="form-group">
+              <label for="senderEmail">Your Email</label>
+              <input type="email" id="senderEmail" required placeholder="alex@company.com">
+            </div>
+            <div class="form-group">
+              <label for="messageBody">Message</label>
+              <textarea id="messageBody" rows="3" required placeholder="Let's build something together..."></textarea>
+            </div>
+            <button type="submit" class="send-message-btn">
+              <span>Send Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-content" id="modalContent">
+        <!-- Dynamically injected via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notification" id="toastNotification">
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p>&copy; <span id="currentYear">2026</span> Mark Oyster J &middot; Chennai, India</p>
+      </div>
+      <div class="footer-center">
+        <p>Circuits first &middot; Software close behind</p>
+      </div>
+      <div class="footer-right">
+        <button type="button" class="theme-switch-btn" id="themeSwitchBtn" aria-label="Switch background theme">
+          <span class="theme-switch-dot" aria-hidden="true"></span>
+          <span id="themeSwitchLabel">Classic Theme</span>
+        </button>
+        <a href="#top" class="back-to-top">Back to top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Aurora.js"></script>
+  <script src="GradientText.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
